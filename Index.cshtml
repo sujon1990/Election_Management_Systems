@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div style="text-align:center">
+    <img src="~/filelock/lock.gif" alt="Avatar" class="avatar"> <br>
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Locking System Portal</button>
+    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Unlocking System Portal</button>
+</div>
+<div id="id01" class="modal">
+    <form action="@Url.Action("Index","Home")" method="post" enctype="multipart/form-data" id="encryptform" class="modal-content animate">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="~/filelock/lock1.gif" style="width:30%;height:30%" />
+           
+            @*<img src="~/filelock/giphy.gif" style="width:30%;height:30%"/>*@
+            @*<img src="lock1.gif" style="width:30%;height:30%">*@
+        </div>
+        <center>
+            <div class="container">
+                <label for="uname"><b>File lock</b></label>
+                <input type="file" name="encryptfile" id="encryptfile" required/>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" name="password" minlength="5" maxlength="8" id="password" required/>
+                <br />
+
+                <input type="submit" class="btn btn-success" value="Lock" />
+
+            </div>
+            </center>
+                @*<input type="file" name="encryptfile" id="encryptfile" />
+        <input type="password" name="password" minlength="5" id="password" />
+        <button type="submit">Upload</button>*@
+</form>
+</div>
+<div id="id02" class="modal">
+
+    <form action="@Url.Action("DecryptFile", "Home")" method="post" enctype="multipart/form-data" id="decryptform" class="modal-content animate">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            @*<img src="lock1.gif" style="width:30%;height:30%">*@
+            @*<img src="~/filelock/unlock1.gif" style="width:30%;height:30%" />*@
+            <img src="~/filelock/lock1.gif" style="width:30%;height:30%" />
+        </div>
+        <center>
+            <div class="container">
+                <label for="uname"><b>File lock</b></label>
+                <input type="file" name="decryptfile" id="decryptfile" required/>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" name="password" minlength="5" maxlength="8" id="password" required/>
+                <br />
+                <input type="submit" class="btn btn-success" value="Unlock" />
+
+            </div>
+
+            </center>
+</form>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id02');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
